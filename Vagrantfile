@@ -88,14 +88,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      rbenv: {
-        user_installs: [{
-          user: 'vagrant',
-          rubies: ["2.1.5"],
-          global: "2.1.5",
-          gems: {
-            "2.1.5" => [
-              { name: "bundler" }
+      'rbenv' => {
+        'user_installs' => [{
+          'user'   => "vagrant",
+          'rubies' => ["2.1.5"],
+          'global' => "2.1.5",
+          'gems'   => {
+            '2.1.5' => [
+              { 'name' => 'bundler' }
             ]
           }
         }]
