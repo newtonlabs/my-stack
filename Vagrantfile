@@ -40,7 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network :private_network, type: 'dhcp'
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   # config.vm.network :forwarded_port, guest: 5000, host: 5000
-  # config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 8080, host: 9090
   # config.vm.network :forwarded_port, guest: 8050, host: 8050
 
   # Create a forwarded port mapping which allows access to a specific port
@@ -53,7 +53,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../skeuos-hermes", "/srv/skeuos", type: "rsync"
   config.vm.synced_folder "../canvas-org/productivity", "/srv/productivity", type: "rsync"
-  config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync"
+  # config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
