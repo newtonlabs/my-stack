@@ -7,9 +7,13 @@ cookbook 'git'
 cookbook 'build-essential'
 cookbook 'ruby_build'
 cookbook 'anaconda', git: 'https://github.com/thmttch/chef-continuum-anaconda'
-cookbook 'nodejs', git: 'https://github.com/mdxp/nodejs-cookbook'
-cookbook 'rbenv', git: 'https://github.com/muskox/chef-rbenv'
-cookbook 'java', git: 'https://github.com/agileorbit-cookbooks/java.git'
+cookbook 'nodejs',   git: 'https://github.com/mdxp/nodejs-cookbook'
+cookbook 'rbenv',    git: 'https://github.com/muskox/chef-rbenv'
+
+# This is the original but not working
+# cookbook 'rbenv',    git: 'https://github.com/fnichol/chef-rbenv'
+
+cookbook 'java',     git: 'https://github.com/agileorbit-cookbooks/java.git'
 cookbook 'vim'
 cookbook 'nginx'
 cookbook 'mysql', '~> 6.0'
