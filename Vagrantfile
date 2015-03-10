@@ -53,7 +53,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../skeuos-hermes", "/srv/skeuos", type: "rsync"
   config.vm.synced_folder "../canvas-org/productivity", "/srv/productivity", type: "rsync"
-  # config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync"
+  config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z"]
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
