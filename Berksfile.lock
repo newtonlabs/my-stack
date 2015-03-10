@@ -1,0 +1,104 @@
+DEPENDENCIES
+  anaconda
+    git: https://github.com/thmttch/chef-continuum-anaconda
+    revision: c21aedad80ef5a473b7fee9e3fdc902eb8bf00cc
+  apt
+  build-essential
+  git
+  java
+    git: https://github.com/agileorbit-cookbooks/java.git
+    revision: c9abfc8168e38ef5fc21d5b811bf6184d937827a
+  leiningen (~> 0.2.0)
+  mongodb (~> 0.16.2)
+  my-stack
+    path: .
+    metadata: true
+  mysql (~> 6.0)
+  nginx
+  nodejs
+    git: https://github.com/mdxp/nodejs-cookbook
+    revision: e2415cd8c4e03dccf21d7ef6ca31e1c5c81467ca
+  rbenv
+    git: https://github.com/muskox/chef-rbenv
+    revision: 7b1b96356ac61072c1d2c181642f98bb5c09bd7e
+  ruby_build
+  vim
+
+GRAPH
+  anaconda (0.4.5)
+    apt (>= 0.0.0)
+    runit (>= 0.0.0)
+  apt (2.6.1)
+  bluepill (2.3.1)
+    rsyslog (>= 0.0.0)
+  build-essential (2.1.3)
+  chef_handler (1.1.6)
+  dmg (2.2.2)
+  git (4.1.0)
+    build-essential (>= 0.0.0)
+    dmg (>= 0.0.0)
+    runit (>= 1.0)
+    windows (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  java (1.32.0)
+  leiningen (0.2.0)
+    java (>= 0.0.0)
+  mongodb (0.16.2)
+    apt (>= 1.8.2)
+    python (>= 0.0.0)
+    runit (>= 1.5.0)
+    yum (>= 3.0)
+  my-stack (0.1.0)
+    anaconda (>= 0.0.0)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    git (>= 0.0.0)
+    java (~> 1.32.0)
+    mongodb (~> 0.16.2)
+    mysql (~> 6.0)
+    nginx (>= 0.0.0)
+    nodejs (>= 0.0.0)
+    rbenv (>= 0.0.0)
+    ruby_build (>= 0.0.0)
+    vim (>= 0.0.0)
+  mysql (6.0.15)
+    smf (>= 0.0.0)
+    yum-mysql-community (>= 0.0.0)
+  nginx (2.7.4)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 2.0)
+    ohai (~> 2.0)
+    runit (~> 1.2)
+    yum-epel (~> 0.3)
+  nodejs (1.3.0)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  ohai (2.0.1)
+  python (1.4.6)
+    build-essential (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  rbac (1.0.2)
+  rbenv (0.7.3)
+    java (> 1.4.0)
+    ruby_build (>= 0.0.0)
+  resource-control (0.1.1)
+  rsyslog (1.15.0)
+  ruby_build (0.8.0)
+  runit (1.5.16)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  smf (2.2.5)
+    rbac (>= 1.0.1)
+    resource-control (>= 0.0.0)
+  vim (1.1.2)
+  windows (1.36.6)
+    chef_handler (>= 0.0.0)
+  yum (3.5.3)
+  yum-epel (0.6.0)
+    yum (~> 3.0)
+  yum-mysql-community (0.1.13)
+    yum (>= 3.0)
