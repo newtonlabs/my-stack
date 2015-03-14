@@ -32,15 +32,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.box_url doesn't need to be specified.
   config.vm.box = 'chef/ubuntu-14.04'
 
-
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
   # any other machines on the same network, but cannot be accessed (through this
   # network interface) by any external networks.
   # config.vm.network :private_network, type: 'dhcp'
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+
+  # These get tweaked often
+  # config.vm.network :forwarded_port, guest: 3000, host: 3000
   # config.vm.network :forwarded_port, guest: 5000, host: 5000
-  config.vm.network :forwarded_port, guest: 8080, host: 9090
+  # config.vm.network :forwarded_port, guest: 8080, host: 8080
   config.vm.network :forwarded_port, guest: 5050, host: 5050
 
   # Create a forwarded port mapping which allows access to a specific port
@@ -51,12 +52,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../skeuos-hermes", "/srv/skeuos", type: "rsync"
-  config.vm.synced_folder "../canvas-org/gromit", "/srv/gromit", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z"], rsync__auto: false
-  config.vm.synced_folder "../canvas-org/productivity", "/srv/productivity", type: "rsync"
+
+  # Note: these are the default rsync options: 
+  # ["--verbose", "--archive", "--delete", "-z", "--copy-links"].
+
+  # Canvas Services`
+  config.vm.synced_folder "../canvas-org/gromit", "/srv/gromit",
+                          type:        "rsync", 
+                          rsync__args: ["--verbose", "--archive", "--delete", "-z"], 
+                          rsync__auto: false
+  config.vm.synced_folder "../canvas-org/productivity", "/srv/productivity", 
+                          type: "rsync"
+  config.vm.synced_folder "../canvas-org/growbag/shared", "/srv/gromit/repo/shared", 
+                          type: "rsync"
+  config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", 
+                          type: "rsync", 
+                          rsync__args: ["--verbose", "--archive", "--delete", "-z"], 
+                          rsync__auto: false
+  # config.vm.synced_folder "../skeuos-hermes", "/srv/skeuos", 
+  #                        type: "rsync"
+
+  # Canvas Applications
   config.vm.synced_folder "../canvas-applications", "/srv/gromit/repo/projects", type: "rsync"
-  config.vm.synced_folder "../canvas-org/growbag/shared", "/srv/gromit/repo/shared", type: "rsync"
-  config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z"], rsync__auto: false
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
