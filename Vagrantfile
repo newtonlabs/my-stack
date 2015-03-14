@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   # config.vm.network :forwarded_port, guest: 5000, host: 5000
   config.vm.network :forwarded_port, guest: 8080, host: 9090
-  # config.vm.network :forwarded_port, guest: 8050, host: 8050
+  config.vm.network :forwarded_port, guest: 5050, host: 5050
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -52,8 +52,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../skeuos-hermes", "/srv/skeuos", type: "rsync"
+  config.vm.synced_folder "../canvas-org/gromit", "/srv/gromit", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z"], rsync__auto: false
   config.vm.synced_folder "../canvas-org/productivity", "/srv/productivity", type: "rsync"
-  config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z"]
+  config.vm.synced_folder "../canvas-applications", "/srv/gromit/repo/projects", type: "rsync"
+  config.vm.synced_folder "../canvas-org/growbag/shared", "/srv/gromit/repo/shared", type: "rsync"
+  config.vm.synced_folder "../canvas-org/wallace", "/srv/wallace", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z"], rsync__auto: false
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
